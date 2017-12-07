@@ -1,27 +1,8 @@
 /* eslint-env jest */
 import validators from '../src/validators'
-import speclaValidator from '../src/validators/specla-validator'
-import superstruct from '../src/validators/superstruct'
-import joi from '../src/validators/joi'
 import simpleData from './data/simple-data'
 
-const testRuns = 500000
-
-const run = (testFn, data, times = testRuns) => {
-  for (let i = 0; i < times; i++) testFn(data)
-}
-
-test('Benchmark test superstruct', () => {
-  run(superstruct, simpleData)
-})
-
-test('Benchmark test @specla/validator', () => {
-  run(speclaValidator, simpleData)
-})
-
-test('Benchmark test joi', () => {
-  run(joi, simpleData)
-})
+const testRuns = 1000000
 
 test('Benchmark avarage operation time in ns', () => {
   const result = {}
